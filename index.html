@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LocalSimple | Sistemas de Organización y Control para Comercios</title>
+  <meta name="description"
+    content="LocalSimple: Control de stock, inventario y catálogo para comercios y locales de barrio. Facilitale la vida a tu negocio.">
+
+  <!-- Open Graph / Meta para compartir en WhatsApp / Redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LocalSimple | Control de Stock y Sistemas para Locales">
+  <meta property="og:description"
+    content="Mantené el orden de tu local y ahorrá horas de trabajo. Control de stock y catálogos simples.">
+
+  <!-- Fuentes: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+            },
+            accent: {
+              50: '#f8fafc',
+              100: '#f1f5f9',
+              500: '#0f172a',
+              600: '#020617',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="bg-white text-slate-800 antialiased font-sans selection:bg-slate-100 selection:text-slate-900">
+
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <span class="font-extrabold text-slate-900 text-lg tracking-tight">Local<span
+            class="text-slate-400 font-medium">Simple</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#sobre-mi" class="hover:text-slate-900 transition-colors">Sobre Mí</a>
+        <a href="#servicios" class="hover:text-slate-900 transition-colors">Servicios</a>
+        <a href="demo-ecommerce.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs transition-colors">
+          <span>Catálogo Digital</span>
+        </a>
+        <a href="demo-inventario.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs transition-colors">
+          <span>Control de Stock</span>
+        </a>
+        <a href="#proceso" class="hover:text-slate-900 transition-colors">Cómo Funciona</a>
+        <a href="#preguntas" class="hover:text-slate-900 transition-colors">Preguntas</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/5491122456950?text=Hola!%20Vi%20tu%20web%20y%20quiero%20hacerte%20una%20consulta%20para%20mi%20local"
+          target="_blank"
+          class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-sm hover:shadow transition-all transform active:scale-95">
+          <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+          <span>Consultar por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-white">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-40 -z-10">
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-6">
+        <span>Sistemas prácticos para comercios locales</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+        Mantené el orden de tu local <br class="hidden sm:inline">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900">
+          y ahorrá horas de trabajo.
+        </span>
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-600 mb-9 leading-relaxed">
+        Herramientas a medida para el dueño del negocio: <strong class="text-slate-900 font-semibold">catálogo digital</strong> para no pasar precios a mano, <strong class="text-slate-900 font-semibold">control de stock</strong> para saber qué reponer y <strong class="text-slate-900 font-semibold">registro ágil de ventas</strong>. Todo desde tu celular o la PC del mostrador.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
+        <a href="#ejemplos"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all text-sm group">
+          <span>Ver herramientas de ejemplo</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        <a href="https://wa.me/5491122456950?text=Hola!%20Me%20interesa%20consultar%20para%20mi%20negocio"
+          target="_blank"
+          class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3.5 rounded-xl border border-slate-200 shadow-sm transition-all text-sm">
+          <i data-lucide="message-square" class="w-4 h-4 text-emerald-600"></i>
+          <span>Charlemos 5 minutos</span>
+        </a>
+      </div>
+
+      <!-- Quick Trust Points -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 max-w-4xl mx-auto text-left">
+        <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-xs flex items-start gap-3">
+          <div class="p-2 rounded-lg bg-slate-100 text-slate-700 shrink-0">
+            <i data-lucide="smartphone" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 text-sm">Sin planillas raras</div>
+            <div class="text-xs text-slate-500 mt-0.5">Fácil de usar desde el celular.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-xs flex items-start gap-3">
+          <div class="p-2 rounded-lg bg-slate-100 text-slate-700 shrink-0">
+            <i data-lucide="check-square" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 text-sm">Orden en mostrador</div>
+            <div class="text-xs text-slate-500 mt-0.5">Menos tiempo pasando precios.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-xs flex items-start gap-3">
+          <div class="p-2 rounded-lg bg-slate-100 text-slate-700 shrink-0">
+            <i data-lucide="layers" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 text-sm">Stock siempre al día</div>
+            <div class="text-xs text-slate-500 mt-0.5">Sabé qué pedir a tu proveedor.</div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-xs flex items-start gap-3">
+          <div class="p-2 rounded-lg bg-slate-100 text-slate-700 shrink-0">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <div class="font-bold text-slate-900 text-sm">Pago único</div>
+            <div class="text-xs text-slate-500 mt-0.5">Entrega llave en mano y lista.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN SOBRE MÍ / VECINO A VECINO -->
+  <section id="sobre-mi" class="py-14 bg-slate-50/60 border-y border-slate-200/80">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm relative overflow-hidden">
+
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 relative z-10">
+
+          <!-- Lado Izquierdo: Presentación personal y propuesta -->
+          <div class="flex-1 text-center sm:text-left">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold mb-4">
+              <span>Trato directo en el barrio • 5 años en sistemas</span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Hola, soy Seba.
+            </h2>
+
+            <p class="text-sm sm:text-base text-slate-600 mt-3 leading-relaxed">
+              <strong>Trabajo en sistemas hace 5 años</strong> y vivo acá en el barrio. Conozco de cerca el esfuerzo de abrir la persiana todos los días, atender el mostrador y mantener los números al día.
+            </p>
+            <p class="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+              Mi objetivo es darte <strong class="text-slate-900">herramientas que te faciliten la vida a la hora de trabajar y mantener el orden</strong>: no un sistema difícil de entender, sino un catálogo digital y un control de stock simple, hechos a la medida de tu local y listos para usar desde tu celular o computadora.
+            </p>
+
+            <div class="mt-6 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3.5">
+              <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Vi%20tu%20web%20y%20me%20gustar%C3%ADa%20charlar%20sobre%20mi%20local"
+                target="_blank"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-5 py-2.5 rounded-xl shadow-sm transition-all transform active:scale-95">
+                <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400"></i>
+                <span>Charlar 5 minutos por WhatsApp</span>
+              </a>
+              <span class="text-xs text-slate-500 font-medium flex items-center gap-1.5">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-400"></i> Paso por tu negocio cuando te quede cómodo
+              </span>
+            </div>
+          </div>
+
+          <!-- Lado Derecho: Bloques de confianza estilo Bento -->
+          <div class="w-full lg:w-80 shrink-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+              <div
+                class="w-11 h-11 rounded-xl bg-slate-900 text-white flex items-center justify-center font-black text-sm shrink-0 shadow-sm">
+                5+
+              </div>
+              <div class="text-left">
+                <div class="font-bold text-slate-900 text-sm">Años en Sistemas</div>
+                <div class="text-xs text-slate-500">Desarrollo sólido, rápido y seguro</div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+              <div
+                class="w-11 h-11 rounded-xl bg-slate-200 text-slate-900 flex items-center justify-center shrink-0">
+                <i data-lucide="shield-check" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <div class="font-bold text-slate-900 text-sm">Pago Único</div>
+                <div class="text-xs text-slate-500">Sin abonos mensuales obligatorios</div>
+              </div>
+            </div>
+
+            <div
+              class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5 sm:col-span-2 lg:col-span-1">
+              <div class="w-11 h-11 rounded-xl bg-slate-200 text-slate-900 flex items-center justify-center shrink-0">
+                <i data-lucide="map-pin" class="w-5 h-5"></i>
+              </div>
+              <div class="text-left">
+                <div class="font-bold text-slate-900 text-sm">En el Barrio</div>
+                <div class="text-xs text-slate-500">Atención cara a cara cuando lo necesites</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN: QUÉ PROBLEMAS RESOLVEMOS -->
+  <section class="py-16 bg-slate-50/70 border-y border-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          Problemas diarios en el mostrador que podés resolver
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          La mayoría de los comercios pierden tiempo valioso por no tener su mercadería y precios ordenados.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="clock" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">Horas respondiendo precios y medidas por mensaje</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              Clientes que preguntan una y otra vez qué tenés en stock, marcas o precios. Te quita tiempo para atender a la gente en el local.
+            </p>
+          </div>
+          <div
+            class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Solución: Catálogo digital para enviar en 1 segundo.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div>
+            <div
+              class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="alert-circle" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">Faltantes imprevistos de mercadería</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              Enterarte de que no te queda un producto recién cuando un cliente te lo pide o cuando el distribuidor ya pasó.
+            </p>
+          </div>
+          <div
+            class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Solución: Avisos de stock bajo para saber qué pedir.
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold mb-4">
+              <i data-lucide="file-text" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 text-lg mb-2">Ventas en papeles o cuadernos que se pierden</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">
+              Anotaciones rápidas en hojas manchadas y cuentas difíciles de cerrar al final del día.
+            </p>
+          </div>
+          <div
+            class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-slate-800 flex items-center gap-1.5">
+            <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i> Solución: Registro de ventas con un toque desde el celular.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN SERVICIOS -->
+  <section id="servicios" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Servicios a tu medida</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
+          ¿Qué podemos armar para tu negocio?
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3">
+          Todo es adaptable. Desde algo muy simple para empezar hasta herramientas completas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Tarjeta 1: Catálogo Digital -->
+        <div
+          class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+          <div>
+            <div
+              class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-5 font-bold text-xs">
+              <i data-lucide="clipboard-list" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Catálogo Digital de Artículos</h3>
+            <p class="text-xs text-slate-500 mb-6 leading-relaxed">
+              Ideal para ferreterías, repuestos, bazares, indumentaria y comercios con variedad de artículos. Tus clientes ven fotos, marcas y precios solos sin hacerte perder tiempo.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Buscador por código, marca o nombre</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Recepción de pedidos ordenada con códigos</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Cambiás precios en segundos desde el celular</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>0% de comisiones sobre tus ventas</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-100">
+            <a href="demo-ecommerce.html"
+              class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-4 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 active:scale-95">
+              <span>Abrir Demo de Catálogo</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Control de Stock e Inventario -->
+        <div
+          class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+          <div>
+            <div
+              class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-5 font-bold text-xs">
+              <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Control de Stock y Caja</h3>
+            <p class="text-xs text-slate-500 mb-6 leading-relaxed">
+              Un panel interno y privado para vos y tus empleados. Descontás mercadería con 1 clic en el mostrador, sabés qué pedir y controlás el total cobrado.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Alertas de stock bajo para pedir al proveedor</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Botón de venta rápida en 1 segundo</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Carga ágil desde celular o computadora</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Balance de ventas del día sin hojas sueltas</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-100">
+            <a href="demo-inventario.html"
+              class="w-full text-center bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold py-2.5 px-4 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 active:scale-95">
+              <span>Abrir Demo Panel de Stock</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Automatizaciones & Mensajes -->
+        <div
+          class="group bg-white rounded-2xl p-7 border border-slate-200/90 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between">
+          <div>
+            <div
+              class="w-10 h-10 rounded-lg bg-slate-900 text-white flex items-center justify-center mb-5 font-bold text-xs">
+              <i data-lucide="workflow" class="w-5 h-5"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Automatizaciones de Rutina</h3>
+            <p class="text-xs text-slate-500 mb-6 leading-relaxed">
+              Conexiones sencillas para que no pierdas tiempo anotando a mano en el mostrador: planillas que se actualizan solas y avisos automáticos.
+            </p>
+            <ul class="space-y-2.5 text-xs text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Sincronización con planillas de Google o Excel</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Avisos de reposición automática al proveedor</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Confirmación de pedido armado listo para cobrar</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>Menos errores de cobro o mercadería faltante</span>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-5 border-t border-slate-100">
+            <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Quiero%20consultarte%20por%20una%20automatizaci%C3%B3n%20para%20mi%20local"
+              target="_blank"
+              class="w-full text-center bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs font-bold py-2.5 px-4 rounded-lg shadow-xs transition-all flex items-center justify-center gap-1.5 active:scale-95">
+              <span>Consultar por Automatización</span> <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN EJEMPLOS Y VISTAS INTERACTIVAS -->
+  <section id="ejemplos" class="py-20 bg-slate-50 border-y border-slate-200/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span
+          class="inline-block px-3 py-1 bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
+          Herramientas de Mostrador
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Probá cómo te facilitan el trabajo diario
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-2">
+          Abrí cualquiera de las dos herramientas interactivas para probar cómo te ahorran tiempo y te mantienen el orden:
+        </p>
+      </div>
+
+      <!-- GRID DE LAS 2 VISTAS PRINCIPALES -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+
+        <!-- SHOWCASE VISTA 1: CATÁLOGO DIGITAL -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                Para agilizar la atención
+              </span>
+              <span class="text-xs text-slate-400">Celular o PC</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-2">
+              Catálogo Digital de Artículos
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 mb-5 leading-relaxed">
+              Tus clientes consultan tu catálogo con códigos, fotos y precios actualizados. Te envían el pedido ya armado con los códigos exactos para que solo tengas que separar y cobrar.
+            </p>
+
+            <!-- Preview visual limpio tipo ferretería / retail -->
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 space-y-2.5">
+              <div class="flex items-center justify-between text-xs pb-2 border-b border-slate-200 text-slate-500 font-semibold">
+                <span>Ferretería & Suministros (Demo)</span>
+                <span class="text-emerald-700 font-bold">Catálogo activo</span>
+              </div>
+              <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                  <div class="text-[10px] font-mono text-slate-400 font-bold">HER-101</div>
+                  <div class="font-bold text-[11px] text-slate-900 truncate mt-0.5">Taladro 650W</div>
+                  <div class="text-[11px] text-slate-600 font-extrabold mt-1">$48.500</div>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                  <div class="text-[10px] font-mono text-slate-400 font-bold">PIN-201</div>
+                  <div class="font-bold text-[11px] text-slate-900 truncate mt-0.5">Látex 10L</div>
+                  <div class="text-[11px] text-slate-600 font-extrabold mt-1">$36.200</div>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs">
+                  <div class="text-[10px] font-mono text-slate-400 font-bold">ELE-301</div>
+                  <div class="font-bold text-[11px] text-slate-900 truncate mt-0.5">Cable 2.5mm</div>
+                  <div class="text-[11px] text-slate-600 font-extrabold mt-1">$54.000</div>
+                </div>
+              </div>
+              <div class="pt-2 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                <span>Buscador por código y marca incluido</span>
+                <span>0% comisiones</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-600 mb-6 font-medium">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Buscador por rubros (Herramientas, Pinturas, Electricidad, etc.)
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Pedido con código de artículo para no confundir piezas ni medidas
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Carga rápida y liviana en cualquier teléfono sin consumir datos
+              </li>
+            </ul>
+          </div>
+
+          <a href="demo-ecommerce.html" class="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-lg shadow-xs transition-all active:scale-95">
+            <span>Abrir Demo de Catálogo</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- SHOWCASE VISTA 2: PANEL DE CONTROL DE STOCK -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs hover:border-slate-300 transition-all flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between gap-3 mb-4">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200">
+                Gestión interna del local
+              </span>
+              <span class="text-xs text-slate-400">Privado y Protegido</span>
+            </div>
+
+            <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-2">
+              Panel de Control de Stock y Caja
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-500 mb-5 leading-relaxed">
+              Tu propio sistema interno para registrar ventas en el mostrador con un solo toque, controlar qué mercadería falta pedir y ver la recaudación del día.
+            </p>
+
+            <!-- Preview visual limpio -->
+            <div class="bg-slate-50 rounded-xl p-4 border border-slate-200 mb-6 space-y-2.5">
+              <div class="grid grid-cols-2 gap-2 text-center text-xs">
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs text-left">
+                  <div class="text-[10px] text-slate-400 font-bold uppercase">Caja del Día</div>
+                  <div class="text-base font-black text-slate-900 mt-0.5">$54.200</div>
+                  <div class="text-[10px] text-emerald-700 font-bold">16 ventas registradas</div>
+                </div>
+                <div class="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs text-left">
+                  <div class="text-[10px] text-amber-700 font-bold uppercase">Stock Bajo</div>
+                  <div class="text-base font-black text-amber-600 mt-0.5">2 artículos</div>
+                  <div class="text-[10px] text-amber-800 font-medium">Para pedir a proveedor</div>
+                </div>
+              </div>
+              <div class="pt-2 flex items-center justify-between text-[11px] text-slate-500 font-medium border-t border-slate-200">
+                <span>Botón "-1 Venta" rápido en mostrador</span>
+                <span>Carga de artículos nuevos</span>
+              </div>
+            </div>
+
+            <ul class="space-y-2 text-xs text-slate-600 mb-6 font-medium">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Alertas automáticas de stock crítico para pedir a tiempo al proveedor
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Descuento de stock en 1 segundo al concretar una venta
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                Sin planillas complicadas: funciona en tu celular o PC del mostrador
+              </li>
+            </ul>
+          </div>
+
+          <a href="demo-inventario.html" class="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm py-3 px-5 rounded-lg shadow-xs transition-all active:scale-95">
+            <span>Abrir Demo Panel de Stock</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- BLOQUE DE AUTOMATIZACIONES -->
+      <div class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-xs flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="max-w-xl">
+          <div class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded mb-2">
+            Automatizaciones a Medida
+          </div>
+          <h4 class="font-bold text-slate-900 text-base sm:text-lg">¿Tenés tareas repetitivas en tu mostrador?</h4>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+            Podemos conectar tus ventas con planillas de cálculo, alertas de reposición por email o confirmaciones automáticas para que te dediques al mostrador sin perder el orden.
+          </p>
+        </div>
+        <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Quiero%20consultarte%20por%20una%20automatizaci%C3%B3n%20para%20mi%20local" target="_blank" class="shrink-0 inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold text-xs sm:text-sm px-5 py-3 rounded-lg transition-all">
+          <i data-lucide="message-square" class="w-4 h-4 text-slate-700"></i>
+          <span>Consultar por Automatizaciones</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA / PROCESO SENCILLO -->
+  <section id="proceso" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Paso a paso</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-2">
+          De la idea a tenerlo listo en tu local
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base mt-3">
+          Sin términos técnicos difíciles ni vueltas. Nos enfocamos en lo práctico.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+
+        <div
+          class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative hover:border-slate-300 transition-colors">
+          <div class="text-3xl font-extrabold text-slate-200 mb-2">01</div>
+          <h3 class="font-bold text-slate-900 text-base mb-1.5">Nos conocemos</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Paso por tu local o charlamos 10 minutos por WhatsApp. Me contás qué vendés y qué necesitás agilizar.
+          </p>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative hover:border-slate-300 transition-colors">
+          <div class="text-3xl font-extrabold text-slate-200 mb-2">02</div>
+          <h3 class="font-bold text-slate-900 text-base mb-1.5">Armo tu borrador</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Te presento una primera versión con tus colores, logo y productos para que la pruebes desde tu propio
+            teléfono.
+          </p>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative hover:border-slate-300 transition-colors">
+          <div class="text-3xl font-extrabold text-slate-200 mb-2">03</div>
+          <h3 class="font-bold text-slate-900 text-base mb-1.5">Ajustes a tu gusto</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Cambiamos lo que no te convenza hasta que quede exactamente como querés y sea cómodo para tu día a día.
+          </p>
+        </div>
+
+        <div
+          class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm relative hover:border-slate-300 transition-colors">
+          <div class="text-3xl font-extrabold text-slate-200 mb-2">04</div>
+          <h3 class="font-bold text-slate-900 text-base mb-1.5">Entrega 100% Lista</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Te la entrego funcionando con tus carteles/QR y te muestro cómo usarla. Tu web queda lista para vender sin
+            depender de nadie.
+          </p>
+        </div>
+
+      </div>
+
+      <div
+        class="mt-12 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div>
+          <h4 class="font-bold text-slate-900 text-base sm:text-lg">¿Querés que pase por tu negocio?</h4>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1">Podemos coordinar para charlar sin ningún compromiso.</p>
+        </div>
+        <a href="https://wa.me/5491122456950?text=Hola!%20Me%20gustar%C3%ADa%20que%20coordinemos%20para%20charlar%20sobre%20mi%20local"
+          target="_blank"
+          class="shrink-0 inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-semibold px-5 py-3 rounded-xl transition-all shadow-sm">
+          <i data-lucide="calendar" class="w-4 h-4"></i>
+          <span>Coordinar una visita o charla</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN FAQ / PREGUNTAS FRECUENTES -->
+  <section id="preguntas" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center mb-12">
+        <span class="text-xs uppercase font-bold tracking-widest text-slate-400">Dudas habituales</span>
+        <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight mt-2">
+          Preguntas frecuentes
+        </h2>
+      </div>
+
+      <div class="space-y-4" id="faq-container">
+
+        <!-- Pregunta 1 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white">
+          <button
+            class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:bg-slate-50 transition-colors">
+            <span>¿Tengo que saber de computación para usar esto?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-500 hidden leading-relaxed">
+            No, para nada. La idea es que sea tan fácil como mandar un mensaje por WhatsApp. Si sabés usar tu celular,
+            sabés usar la web. Además, yo mismo te enseño y te dejo un instructivo rápido.
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white">
+          <button
+            class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:bg-slate-50 transition-colors">
+            <span>¿Cuánto tiempo tarda en estar lista la web?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-500 hidden leading-relaxed">
+            Para un catálogo o página básica de presentación, solemos tener un borrador listo en menos de 5 a 7 días
+            hábiles. Si es algo más complejo con stock y automatizaciones, entre 10 y 15 días.
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white">
+          <button
+            class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:bg-slate-50 transition-colors">
+            <span>¿Me cobrás comisión por cada venta que haga?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-500 hidden leading-relaxed">
+            ¡No! Cero comisión. Todo lo que vendas a través de tu catálogo o pedidos es 100% ganancia de tu local. A
+            diferencia de las apps de envíos, tu web es tuya.
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white">
+          <button
+            class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:bg-slate-50 transition-colors">
+            <span>¿Cómo acceden mis clientes a la web?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-500 hidden leading-relaxed">
+            De tres maneras muy fáciles: mediante un código QR que podés imprimir en tu mostrador o folletos,
+            compartiendo el enlace directo por tu WhatsApp o Instagram, o buscándote en Google.
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="border border-slate-200 rounded-xl overflow-hidden transition-all bg-white">
+          <button
+            class="faq-toggle w-full text-left px-5 py-4 flex items-center justify-between gap-4 font-semibold text-slate-900 text-sm hover:bg-slate-50 transition-colors">
+            <span>¿Cómo actualizo los precios cuando cambian?</span>
+            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 faq-icon transition-transform"></i>
+          </button>
+          <div class="faq-answer px-5 pb-4 text-xs sm:text-sm text-slate-500 hidden leading-relaxed">
+            Podés modificarlos vos mismo fácilmente desde una planilla o panel en tu celular sin costo adicional. Si más
+            adelante preferís delegar cambios periódicos o nuevas funciones, ofrezco planes de mantenimiento mensual
+            opcionales.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-20 bg-white border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="p-8 sm:p-12 rounded-3xl bg-slate-900 text-white relative overflow-hidden shadow-2xl">
+        <div class="relative z-10">
+          <h2 class="text-2xl sm:text-4xl font-extrabold tracking-tight mb-4">
+            ¿Querés ver cómo quedaría tu local online?
+          </h2>
+          <p class="text-slate-300 max-w-lg mx-auto text-sm sm:text-base mb-8">
+            Escribime por WhatsApp contándome de qué es tu negocio y te armo una muestra sin costo para que veas el
+            potencial.
+          </p>
+          <a href="https://wa.me/5491122456950?text=Hola!%20Tengo%20un%20local%20y%20me%20gustar%C3%ADa%20ver%20un%20ejemplo%20para%20mi%20rubro"
+            target="_blank"
+            class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm transition-all transform hover:scale-105 shadow-lg">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Pedir una muestra gratis por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 bg-slate-50 border-t border-slate-200/80 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
+        <div class="flex items-center gap-2">
+          <span class="font-bold text-slate-800 text-sm">LocalSimple</span>
+          <span>— Soluciones digitales para comercios locales</span>
+        </div>
+        <div class="text-slate-400">
+          Hecho con dedicación en el barrio • 2026
+        </div>
+      </div>
+      <p class="text-[11px] text-slate-400">
+        ¿Tenés el folleto en mano? Podés guardar este link en tus favoritos de Chrome o Safari para tenerlo a mano.
+      </p>
+    </div>
+  </footer>
+
+  <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+  <a href="https://wa.me/5491122456950?text=Hola!%20Vi%20el%20folleto%20y%20quiero%20hacerte%20una%20consulta"
+    target="_blank" id="floating-whatsapp" aria-label="Contactar por WhatsApp"
+    class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-xl hover:shadow-2xl flex items-center gap-2.5 transition-all transform hover:scale-105 active:scale-95 group">
+    <i data-lucide="message-circle" class="w-6 h-6"></i>
+    <span class="hidden sm:inline font-bold text-sm">¿Charlamos?</span>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/main.js"></script>
+  <script>
+    // Inicializar iconos de Lucide
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>

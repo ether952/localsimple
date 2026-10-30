@@ -1,0 +1,79 @@
+/* styles.css - Personalizaciones y detalles visuales */
+
+/* Tipografía base y scroll suave */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+/* Efectos de sombras refinadas (look moderno tipo Apple / Stripe) */
+.shadow-clean {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-card {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Pestañas de Demos */
+.demo-tab-btn.active {
+  background-color: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 2px 8px -1px rgba(15, 23, 42, 0.15);
+}
+
+/* FAQ Icon Rotate */
+.faq-icon.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Botón flotante WhatsApp pulse discreto */
+@keyframes pulseSubtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+  }
+}
+
+#floating-whatsapp {
+  animation: pulseSubtle 3.5s infinite ease-in-out;
+}
+
+#floating-whatsapp:hover {
+  animation: none;
+}
+
+/* Prevenir zoom brusco en inputs en iOS */
+input, select, textarea, button {
+  font-size: 16px;
+}
+@media (min-width: 640px) {
+  input, select, textarea, button {
+    font-size: 14px;
+  }
+}

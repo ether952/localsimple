@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Control de Stock y Ventas | LocalSimple</title>
+  <meta name="description" content="Demostración de panel de control de inventario y registro de ventas para dueños de locales. Mantené el orden de tu mercadería sin planillas difíciles.">
+
+  <!-- Fuente: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased pb-24">
+
+  <!-- BARRA SUPERIOR INFORMATIVA -->
+  <aside aria-label="Aviso de demostración" class="bg-slate-900 text-white py-2.5 px-4 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-center sm:text-left">
+        <span class="inline-block w-2 h-2 rounded-full bg-blue-400"></span>
+        <span class="font-medium text-slate-200">
+          <strong>Panel Privado del Dueño:</strong> Diseñado para usar desde el celular en el mostrador o desde una PC. Sin planillas ni fórmulas complicadas.
+        </span>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="index.html" class="text-slate-300 hover:text-white underline font-semibold flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver a LocalSimple
+        </a>
+        <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Me%20interesa%20tener%20un%20panel%20de%20stock%20para%20mi%20local" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-3 py-1 rounded-full text-[11px] transition-all">
+          Consultar para mi local
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVBAR DEL PANEL -->
+  <header class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
+          ST
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-bold text-slate-900 text-base leading-tight">Control de Stock & Mostrador</h1>
+            <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 hidden sm:inline">Uso Interno</span>
+          </div>
+          <p class="text-xs text-slate-400">Comercio: Ferretería & Bazar Central</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <button onclick="openNewProductModal()" class="inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3.5 py-2 rounded-lg shadow-xs transition-all active:scale-95">
+          <i data-lucide="plus" class="w-4 h-4 text-emerald-400"></i>
+          <span>Nuevo Producto</span>
+        </button>
+        <button onclick="resetInventoryDemo()" title="Reiniciar datos de prueba" class="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-all">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+    
+    <!-- METRICAS DE OPERACION DIARIA (KPIS) -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+      
+      <!-- KPI 1: Ventas Hoy -->
+      <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-xs">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Caja del Día</span>
+        <div class="text-2xl font-black text-slate-900" id="kpi-today-sales">$54.200</div>
+        <div class="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
+          <span class="font-bold text-slate-800" id="kpi-sales-count">16 ventas</span> registradas
+        </div>
+      </div>
+
+      <!-- KPI 2: Total Productos -->
+      <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-xs">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Artículos en Catálogo</span>
+        <div class="text-2xl font-black text-slate-900" id="kpi-total-products">6</div>
+        <div class="text-[11px] text-slate-500 mt-1">Con precio y stock fijado</div>
+      </div>
+
+      <!-- KPI 3: Alertas de Reposición -->
+      <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-xs">
+        <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider block mb-1">Stock Bajo</span>
+        <div class="text-2xl font-black text-amber-600" id="kpi-low-stock-count">2</div>
+        <div class="text-[11px] text-amber-800 font-medium mt-1">Requieren pedido a proveedor</div>
+      </div>
+
+      <!-- KPI 4: Unidades Totales -->
+      <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-xs">
+        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1">Unidades Físicas</span>
+        <div class="text-2xl font-black text-slate-900" id="kpi-total-units">64 u.</div>
+        <div class="text-[11px] text-slate-500 mt-1">En depósito y estanterías</div>
+      </div>
+
+    </div>
+
+    <!-- TABLA DE CONTROL DE MERCADERIA -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-xs overflow-hidden">
+      
+      <!-- Cabecera de controles -->
+      <div class="p-4 border-b border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100 rounded-lg">
+          <button onclick="setInvTab('todos')" id="inv-tab-todos" class="inv-tab-btn active px-3 py-1.5 text-xs font-bold rounded-md bg-white text-slate-900 shadow-xs transition-all">
+            Todos los artículos
+          </button>
+          <button onclick="setInvTab('critico')" id="inv-tab-critico" class="inv-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-md transition-all">
+            Por agotar (<span id="tab-critico-badge">2</span>)
+          </button>
+          <button onclick="setInvTab('historial')" id="inv-tab-historial" class="inv-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-md transition-all">
+            Historial de Ventas
+          </button>
+        </div>
+
+        <div class="relative w-full sm:w-64">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            placeholder="Buscar por código o nombre..." 
+            class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-slate-900 focus:bg-white transition-all"
+            oninput="handleInvSearch(this.value)"
+          >
+        </div>
+
+      </div>
+
+      <!-- VISTA TABLA -->
+      <div id="view-inventory-table" class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold text-[11px] uppercase tracking-wider">
+            <tr>
+              <th class="py-3 px-4">Código / Artículo</th>
+              <th class="py-3 px-4">Rubro</th>
+              <th class="py-3 px-4">Precio Venta</th>
+              <th class="py-3 px-4">Stock Actual</th>
+              <th class="py-3 px-4">Estado</th>
+              <th class="py-3 px-4 text-right">Operación de Mostrador</th>
+            </tr>
+          </thead>
+          <tbody id="inventory-tbody" class="divide-y divide-slate-100">
+            <!-- JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- VISTA HISTORIAL -->
+      <div id="view-sales-history" class="hidden p-4 sm:p-5">
+        <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
+          <h4 class="font-bold text-slate-900 text-xs sm:text-sm">Registro de Operaciones de Hoy</h4>
+          <span class="text-[11px] text-slate-400">Cada venta descuenta stock automáticamente</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 font-semibold uppercase text-[10px]">
+              <tr>
+                <th class="py-2.5 px-3">Hora</th>
+                <th class="py-2.5 px-3">Artículo</th>
+                <th class="py-2.5 px-3">Importe</th>
+                <th class="py-2.5 px-3">Medio</th>
+                <th class="py-2.5 px-3 text-right">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="sales-history-tbody" class="divide-y divide-slate-100">
+              <!-- JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- MODAL: AGREGAR NUEVO PRODUCTO -->
+  <div id="new-product-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs hidden items-center justify-center p-4">
+    <div class="bg-white rounded-xl border border-slate-200 shadow-xl w-full max-w-md p-6">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-slate-100 mb-4">
+        <h3 class="font-bold text-slate-900 text-sm">Dar de Alta un Artículo</h3>
+        <button onclick="closeNewProductModal()" class="text-slate-400 hover:text-slate-700">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <form onsubmit="handleCreateProduct(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block font-semibold text-slate-700 mb-1">Nombre o descripción del artículo:</label>
+          <input type="text" id="np-name" required placeholder="Ej: Tornillo Autoperforante 1/4 x 2" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-slate-900 outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Rubro:</label>
+            <select id="np-cat" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-slate-900 outline-none bg-white">
+              <option value="Ferretería">Ferretería</option>
+              <option value="Pinturería">Pinturería</option>
+              <option value="Electricidad">Electricidad</option>
+              <option value="Bazar">Bazar</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Precio de venta ($):</label>
+            <input type="number" id="np-price" required min="10" placeholder="1200" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-slate-900 outline-none">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Stock inicial (u.):</label>
+            <input type="number" id="np-stock" required min="1" value="10" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-slate-900 outline-none">
+          </div>
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">Avisar si baja de (u.):</label>
+            <input type="number" id="np-min" required min="1" value="3" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-1 focus:ring-slate-900 outline-none">
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex items-center justify-end gap-2">
+          <button type="button" onclick="closeNewProductModal()" class="px-3 py-1.5 text-slate-600 font-semibold hover:bg-slate-100 rounded-lg">
+            Cancelar
+          </button>
+          <button type="submit" class="px-4 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg shadow-xs">
+            Guardar artículo
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- BARRA FIJA INFERIOR -->
+  <div class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 py-3 px-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-center sm:text-left">
+        <div class="text-xs font-bold text-slate-900">¿Querés un control de stock ordenado y sin complicaciones para tu negocio?</div>
+        <p class="text-[11px] text-slate-500">Sin abonos obligatorios. Lo tenés en tu celular o PC funcionando desde el primer día.</p>
+      </div>
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="index.html" class="text-xs font-semibold text-slate-700 hover:text-slate-950 px-3 py-2 rounded-lg border border-slate-200 bg-white transition-all">
+          Volver a la portada
+        </a>
+        <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Me%20interesa%20el%20sistema%20de%20control%20de%20stock%20para%20mi%20local" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Consultar con Seba</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const INITIAL_INVENTORY = [
+      { id: 201, sku: "HER-01", name: "Taladro Percutor 650W", category: "Ferretería", price: 48500, stock: 8, min: 4 },
+      { id: 202, sku: "PIN-04", name: "Látex Interior Blanco 10L", category: "Pinturería", price: 36200, stock: 2, min: 4 },
+      { id: 203, sku: "ELE-12", name: "Cable Unipolar 2.5mm x 100m", category: "Electricidad", price: 54000, stock: 3, min: 5 },
+      { id: 204, sku: "HER-09", name: "Juego Destornilladores x 6", category: "Ferretería", price: 12900, stock: 14, min: 5 },
+      { id: 205, sku: "SEG-03", name: "Cerradura de Seguridad Doble Perno", category: "Ferretería", price: 24500, stock: 1, min: 3 },
+      { id: 206, sku: "PIN-08", name: "Rodillo Antigota 22cm", category: "Pinturería", price: 5800, stock: 18, min: 6 }
+    ];
+
+    let inventory = JSON.parse(JSON.stringify(INITIAL_INVENTORY));
+    let salesHistory = [
+      { time: "14:15", name: "Juego Destornilladores x 6", amount: 12900, method: "Efectivo Mostrador" },
+      { time: "13:50", name: "Rodillo Antigota 22cm", amount: 5800, method: "Transferencia / Alias" },
+      { time: "12:30", name: "Taladro Percutor 650W", amount: 48500, method: "Efectivo Mostrador" }
+    ];
+
+    let todaySalesTotal = 67200;
+    let todaySalesCount = 16;
+    let currentTab = 'todos';
+    let searchQuery = '';
+
+    function renderInventory() {
+      const tbody = document.getElementById('inventory-tbody');
+      if (!tbody) return;
+
+      const filtered = inventory.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              item.sku.toLowerCase().includes(searchQuery.toLowerCase());
+        const isCritical = item.stock <= item.min;
+        if (currentTab === 'critico') {
+          return matchesSearch && isCritical;
+        }
+        return matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-10 text-center text-slate-400">
+              No se encontraron artículos con el filtro aplicado.
+            </td>
+          </tr>
+        `;
+      } else {
+        tbody.innerHTML = filtered.map(item => {
+          const isOutOfStock = item.stock === 0;
+          const isLow = item.stock <= item.min && !isOutOfStock;
+
+          let badgeClass = "bg-emerald-50 text-emerald-800 border-emerald-200";
+          let badgeText = "Stock normal";
+
+          if (isOutOfStock) {
+            badgeClass = "bg-red-50 text-red-700 border-red-200 font-bold";
+            badgeText = "Agotado";
+          } else if (isLow) {
+            badgeClass = "bg-amber-50 text-amber-800 border-amber-200 font-semibold";
+            badgeText = "Stock bajo (pedir)";
+          }
+
+          return `
+            <tr class="hover:bg-slate-50 transition-colors">
+              <td class="py-3 px-4 font-bold text-slate-900">
+                <span class="text-[10px] font-mono text-slate-400 block">${item.sku}</span>
+                ${item.name}
+              </td>
+              <td class="py-3 px-4 text-slate-500">${item.category}</td>
+              <td class="py-3 px-4 font-bold text-slate-900">$${item.price.toLocaleString('es-AR')}</td>
+              <td class="py-3 px-4">
+                <span class="font-extrabold text-sm ${isOutOfStock ? 'text-red-600' : isLow ? 'text-amber-700' : 'text-slate-900'}">
+                  ${item.stock} u.
+                </span>
+                <span class="text-[10px] text-slate-400 block">Aviso en: ${item.min} u.</span>
+              </td>
+              <td class="py-3 px-4">
+                <span class="inline-block px-2 py-0.5 rounded border text-[11px] ${badgeClass}">
+                  ${badgeText}
+                </span>
+              </td>
+              <td class="py-3 px-4 text-right space-x-1.5 whitespace-nowrap">
+                <button 
+                  onclick="recordQuickSale(${item.id})" 
+                  ${isOutOfStock ? 'disabled' : ''} 
+                  class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-900 hover:bg-slate-800 disabled:opacity-30 disabled:pointer-events-none text-white transition-all shadow-xs" 
+                  title="Descontar 1 unidad vendida"
+                >
+                  -1 Venta
+                </button>
+                <button 
+                  onclick="promptRestock(${item.id})" 
+                  class="px-2.5 py-1 text-xs font-semibold rounded bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 transition-all" 
+                  title="Ingresar mercadería recibida"
+                >
+                  + Reponer
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      }
+
+      updateKPIs();
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function recordQuickSale(id) {
+      const item = inventory.find(i => i.id === id);
+      if (!item || item.stock <= 0) return;
+
+      item.stock -= 1;
+      todaySalesTotal += item.price;
+      todaySalesCount += 1;
+
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      salesHistory.unshift({
+        time: timeStr,
+        name: item.name,
+        amount: item.price,
+        method: "Venta Mostrador"
+      });
+
+      renderInventory();
+      renderSalesHistory();
+    }
+
+    function promptRestock(id) {
+      const item = inventory.find(i => i.id === id);
+      if (!item) return;
+
+      const qty = prompt(`¿Cuántas unidades ingresaron de "${item.name}"?`, "10");
+      const parsed = parseInt(qty);
+      if (!isNaN(parsed) && parsed > 0) {
+        item.stock += parsed;
+        renderInventory();
+      }
+    }
+
+    function updateKPIs() {
+      const kpiSales = document.getElementById('kpi-today-sales');
+      const kpiCount = document.getElementById('kpi-sales-count');
+      const kpiProducts = document.getElementById('kpi-total-products');
+      const kpiLow = document.getElementById('kpi-low-stock-count');
+      const kpiUnits = document.getElementById('kpi-total-units');
+      const tabBadge = document.getElementById('tab-critico-badge');
+
+      const lowCount = inventory.filter(i => i.stock <= i.min).length;
+      const totalUnits = inventory.reduce((acc, curr) => acc + curr.stock, 0);
+
+      if (kpiSales) kpiSales.textContent = `$${todaySalesTotal.toLocaleString('es-AR')}`;
+      if (kpiCount) kpiCount.textContent = `${todaySalesCount} ventas`;
+      if (kpiProducts) kpiProducts.textContent = inventory.length;
+      if (kpiLow) kpiLow.textContent = lowCount;
+      if (kpiUnits) kpiUnits.textContent = `${totalUnits} u.`;
+      if (tabBadge) tabBadge.textContent = lowCount;
+    }
+
+    function renderSalesHistory() {
+      const tbody = document.getElementById('sales-history-tbody');
+      if (!tbody) return;
+
+      tbody.innerHTML = salesHistory.map(sale => `
+        <tr class="hover:bg-slate-50 transition-colors">
+          <td class="py-2.5 px-3 font-mono text-slate-500 font-semibold">${sale.time} hs</td>
+          <td class="py-2.5 px-3 font-bold text-slate-800">${sale.name}</td>
+          <td class="py-2.5 px-3 font-bold text-slate-900">+$${sale.amount.toLocaleString('es-AR')}</td>
+          <td class="py-2.5 px-3 text-slate-500">${sale.method}</td>
+          <td class="py-2.5 px-3 text-right">
+            <span class="inline-block px-2 py-0.5 rounded text-[10px] bg-slate-100 text-slate-700 font-medium">Registrado</span>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function setInvTab(tab) {
+      currentTab = tab;
+      
+      const tabTodos = document.getElementById('inv-tab-todos');
+      const tabCritico = document.getElementById('inv-tab-critico');
+      const tabHistorial = document.getElementById('inv-tab-historial');
+
+      const viewTable = document.getElementById('view-inventory-table');
+      const viewHistory = document.getElementById('view-sales-history');
+
+      [tabTodos, tabCritico, tabHistorial].forEach(t => {
+        t.className = "inv-tab-btn px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 rounded-md transition-all";
+      });
+
+      if (tab === 'todos') {
+        tabTodos.className = "inv-tab-btn active px-3 py-1.5 text-xs font-bold rounded-md bg-white text-slate-900 shadow-xs transition-all";
+        viewTable.classList.remove('hidden');
+        viewHistory.classList.add('hidden');
+        renderInventory();
+      } else if (tab === 'critico') {
+        tabCritico.className = "inv-tab-btn active px-3 py-1.5 text-xs font-bold rounded-md bg-white text-slate-900 shadow-xs transition-all";
+        viewTable.classList.remove('hidden');
+        viewHistory.classList.add('hidden');
+        renderInventory();
+      } else if (tab === 'historial') {
+        tabHistorial.className = "inv-tab-btn active px-3 py-1.5 text-xs font-bold rounded-md bg-white text-slate-900 shadow-xs transition-all";
+        viewTable.classList.add('hidden');
+        viewHistory.classList.remove('hidden');
+        renderSalesHistory();
+      }
+    }
+
+    function handleInvSearch(val) {
+      searchQuery = val.trim();
+      renderInventory();
+    }
+
+    function openNewProductModal() {
+      const modal = document.getElementById('new-product-modal');
+      if (modal) modal.classList.remove('hidden'), modal.classList.add('flex');
+    }
+
+    function closeNewProductModal() {
+      const modal = document.getElementById('new-product-modal');
+      if (modal) modal.classList.add('hidden'), modal.classList.remove('flex');
+    }
+
+    function handleCreateProduct(e) {
+      e.preventDefault();
+      const name = document.getElementById('np-name').value;
+      const cat = document.getElementById('np-cat').value;
+      const price = parseInt(document.getElementById('np-price').value);
+      const stock = parseInt(document.getElementById('np-stock').value);
+      const min = parseInt(document.getElementById('np-min').value);
+
+      const newId = 200 + inventory.length + 1;
+      const newSku = `${cat.substring(0, 3).toUpperCase()}-0${inventory.length + 1}`;
+
+      inventory.unshift({
+        id: newId,
+        sku: newSku,
+        name: name,
+        category: cat,
+        price: price,
+        stock: stock,
+        min: min
+      });
+
+      closeNewProductModal();
+      e.target.reset();
+      renderInventory();
+      alert(`Artículo "${name}" registrado correctamente en el inventario.`);
+    }
+
+    function resetInventoryDemo() {
+      if (confirm("¿Querés reiniciar los datos de la demo a sus valores iniciales?")) {
+        inventory = JSON.parse(JSON.stringify(INITIAL_INVENTORY));
+        todaySalesTotal = 67200;
+        todaySalesCount = 16;
+        renderInventory();
+        renderSalesHistory();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderInventory();
+      renderSalesHistory();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

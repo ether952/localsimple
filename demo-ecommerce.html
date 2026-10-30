@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Digital para Locales | LocalSimple</title>
+  <meta name="description" content="Ejemplo de catálogo digital organizado para comerciantes. Ahorrá tiempo en el mostrador mostrando productos, códigos y precios al día.">
+
+  <!-- Fuente: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased pb-24">
+
+  <!-- BARRA SUPERIOR ORIENTADA AL DUEÑO -->
+  <aside aria-label="Aviso de demostración" class="bg-slate-900 text-white py-2.5 px-4 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2 text-center sm:text-left">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="font-medium text-slate-200">
+          <strong>Demo de Catálogo Organizado:</strong> Tus clientes consultan precios y disponibilidad solos, sin hacerte perder tiempo en el mostrador.
+        </span>
+      </div>
+      <div class="flex items-center gap-3 shrink-0">
+        <a href="index.html" class="text-slate-300 hover:text-white underline font-semibold flex items-center gap-1">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver a LocalSimple
+        </a>
+        <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Vi%20el%20ejemplo%20de%20catálogo%20y%20quiero%20armar%20uno%20para%20mi%20local" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold px-3 py-1 rounded-full text-[11px] transition-all">
+          Consultar para mi local
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- NAVBAR DE LA DEMO -->
+  <header class="sticky top-0 z-30 bg-white border-b border-slate-200 shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Identidad del local de ejemplo: Ferretería & Suministros -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs">
+          FC
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-bold text-slate-900 text-base leading-tight">Ferretería & Suministros Central</h1>
+            <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold text-[10px] border border-slate-200">Catálogo Actualizado</span>
+          </div>
+          <p class="text-xs text-slate-400">Herramientas, Electricidad, Pinturas y Fijaciones</p>
+        </div>
+      </div>
+
+      <!-- Buscador y Carrito -->
+      <div class="flex items-center gap-3">
+        <div class="relative hidden sm:block w-56 lg:w-72">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            placeholder="Buscar por código, medida o marca..." 
+            class="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-slate-900 focus:bg-white transition-all"
+            oninput="handleStoreSearch(this.value)"
+          >
+        </div>
+
+        <button 
+          onclick="toggleCartDrawer(true)"
+          class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-3.5 py-2 rounded-lg text-xs font-bold shadow-xs transition-all"
+        >
+          <i data-lucide="clipboard-list" class="w-4 h-4 text-emerald-400"></i>
+          <span class="hidden sm:inline">Pedido Armado</span>
+          <span id="cart-counter-badge" class="bg-emerald-500 text-slate-950 font-bold text-[11px] px-2 py-0.5 rounded-full">0</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Filtros por rubro -->
+    <div class="border-t border-slate-100 bg-slate-50/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar">
+        <button onclick="filterCategory('todos')" class="cat-pill active px-3 py-1 rounded-md text-xs font-bold bg-slate-900 text-white whitespace-nowrap transition-all">
+          Todos los rubros
+        </button>
+        <button onclick="filterCategory('herramientas')" class="cat-pill px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-200 whitespace-nowrap transition-all">
+          Herramientas Eléctricas & Manuales
+        </button>
+        <button onclick="filterCategory('pinturas')" class="cat-pill px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-200 whitespace-nowrap transition-all">
+          Pinturería & Accesorios
+        </button>
+        <button onclick="filterCategory('electricidad')" class="cat-pill px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-200 whitespace-nowrap transition-all">
+          Electricidad & Cables
+        </button>
+        <button onclick="filterCategory('seguridad')" class="cat-pill px-3 py-1 rounded-md text-xs font-semibold text-slate-600 hover:bg-slate-200 whitespace-nowrap transition-all">
+          Cerrajería & Seguridad
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PANEL DE BENEFICIO PARA EL DUEÑO -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-6">
+    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div class="max-w-2xl">
+        <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-slate-700 bg-white border border-slate-200 px-2 py-0.5 rounded-md mb-2">
+          Objetivo: Ahorrarte tiempo de atención
+        </span>
+        <h2 class="text-base sm:text-lg font-bold text-slate-900">
+          ¿Cuánto tiempo pasás por día respondiendo precios, marcas o medidas?
+        </h2>
+        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+          Con este catálogo digital, el cliente ve el código exacto, la foto, el stock disponible y arma su lista de compras antes de venir o consultar. Recibís los pedidos prolijos y sin confusiones.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 w-full md:w-auto shrink-0 text-left">
+        <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">Precios</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5">Se actualizan en segundos</div>
+        </div>
+        <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+          <div class="text-[10px] text-slate-400 font-bold uppercase">Pedidos</div>
+          <div class="text-xs font-bold text-slate-900 mt-0.5">Llegan limpios con código</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUSCADOR MÓVIL -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 mt-4 sm:hidden">
+    <div class="relative">
+      <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+      <input 
+        type="text" 
+        placeholder="Buscar por código, medida o marca..." 
+        class="w-full pl-9 pr-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-slate-900"
+        oninput="handleStoreSearch(this.value)"
+      >
+    </div>
+  </div>
+
+  <!-- GRILLA DE PRODUCTOS TIPO FERRETERÍA / BAZAR -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 mt-6">
+    
+    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100">
+      <div>
+        <h3 class="text-base font-bold text-slate-900" id="current-section-title">Todos los productos</h3>
+        <p class="text-xs text-slate-400" id="current-products-count">8 artículos listados</p>
+      </div>
+      <span class="text-xs text-slate-400 hidden sm:inline">
+        Hacé clic en <strong>+ Agregar a lista</strong> para probar la recepción del pedido.
+      </span>
+    </div>
+
+    <!-- Contenedor dinámico de productos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="store-products-container">
+      <!-- Se inyecta por JavaScript -->
+    </div>
+
+  </main>
+
+  <!-- MODAL / DRAWER DEL PEDIDO -->
+  <div id="cart-drawer-backdrop" class="fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-50 hidden transition-opacity" onclick="toggleCartDrawer(false)"></div>
+  
+  <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white shadow-2xl z-50 translate-x-full transition-transform duration-200 flex flex-col justify-between">
+    
+    <!-- Encabezado del pedido -->
+    <div class="p-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+      <div>
+        <h4 class="font-bold text-slate-900 text-sm">Lista de Artículos Solicitados</h4>
+        <span class="text-[11px] text-slate-500" id="cart-drawer-item-count">0 items cargados</span>
+      </div>
+      <button onclick="toggleCartDrawer(false)" class="p-1.5 text-slate-400 hover:text-slate-700 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <!-- Lista de items -->
+    <div class="p-4 overflow-y-auto flex-1 divide-y divide-slate-100" id="cart-drawer-items">
+      <!-- JS -->
+    </div>
+
+    <!-- Opciones de entrega y resumen -->
+    <div class="p-4 border-t border-slate-200 bg-slate-50 space-y-3.5">
+      
+      <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Modalidad de retiro:</label>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <button type="button" id="delivery-pickup" onclick="setDeliveryMode('retiro')" class="py-2 px-3 font-bold rounded-lg border border-slate-900 bg-slate-900 text-white text-center transition-all">
+            Retiro en mostrador
+          </button>
+          <button type="button" id="delivery-ship" onclick="setDeliveryMode('envio')" class="py-2 px-3 font-semibold rounded-lg border border-slate-300 bg-white text-slate-700 text-center hover:bg-slate-100 transition-all">
+            Envío a obra / flete
+          </button>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-slate-200 space-y-1 text-xs">
+        <div class="flex justify-between text-slate-500">
+          <span>Subtotal artículos:</span>
+          <span id="cart-subtotal-val">$0</span>
+        </div>
+        <div class="flex justify-between text-slate-500">
+          <span>Envío:</span>
+          <span id="cart-shipping-val" class="font-medium text-slate-700">Sin cargo (Mostrador)</span>
+        </div>
+        <div class="flex justify-between text-sm font-extrabold text-slate-900 pt-1.5 border-t border-slate-200">
+          <span>Total a cobrar:</span>
+          <span id="cart-total-val" class="text-base text-slate-900">$0</span>
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <button 
+          onclick="completeOrderSimulation()" 
+          id="cart-checkout-btn"
+          disabled 
+          class="w-full py-2.5 bg-slate-900 hover:bg-slate-800 disabled:opacity-40 disabled:pointer-events-none text-white font-bold rounded-lg shadow-xs text-xs flex items-center justify-center gap-1.5 transition-all"
+        >
+          <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+          <span>Confirmar y enviar pedido ordenado</span>
+        </button>
+
+        <button onclick="clearStoreCart()" class="w-full text-center text-xs text-slate-400 hover:text-slate-600 py-1 font-medium">
+          Vaciar lista
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BARRA FIJA INFERIOR -->
+  <div class="fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 py-3 px-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="text-center sm:text-left">
+        <div class="text-xs font-bold text-slate-900">¿Querés un catálogo prolijo para tu propio negocio?</div>
+        <p class="text-[11px] text-slate-500">Te entrego el sistema funcionando, con tus productos cargados y soporte cara a cara en el barrio.</p>
+      </div>
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="index.html" class="text-xs font-semibold text-slate-700 hover:text-slate-950 px-3 py-2 rounded-lg border border-slate-200 bg-white transition-all">
+          Volver a la portada
+        </a>
+        <a href="https://wa.me/5491122456950?text=Hola%20Seba!%20Me%20interesa%20tener%20un%20catálogo%20digital%20para%20mi%20local" target="_blank" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2 rounded-lg shadow-xs transition-all flex items-center gap-1.5">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>Consultar con Seba</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Catálogo realista de ferretería / suministros / negocio general
+    const STORE_CATALOG = [
+      {
+        id: 301,
+        sku: "HER-101",
+        name: "Taladro Percutor 650W Mandril 13mm",
+        category: "herramientas",
+        categoryLabel: "Herramientas",
+        price: 48500,
+        desc: "Velocidad variable reversible, empuñadura lateral y tope de profundidad.",
+        brand: "Black & Decker",
+        stockState: "Disponible (8 u.)"
+      },
+      {
+        id: 302,
+        sku: "HER-102",
+        name: "Juego de Destornilladores Imantados x 6",
+        category: "herramientas",
+        categoryLabel: "Herramientas",
+        price: 12900,
+        desc: "3 planos + 3 phillips en acero cromo vanadio con mango ergonómico.",
+        brand: "Stanley",
+        stockState: "Disponible (14 u.)"
+      },
+      {
+        id: 303,
+        sku: "PIN-201",
+        name: "Látex Interior Antihongo Blanco 10L",
+        category: "pinturas",
+        categoryLabel: "Pinturas",
+        price: 36200,
+        desc: "Pintura al agua de alto poder cubritivo y secado rápido. Lavable.",
+        brand: "Alba",
+        stockState: "Disponible (5 u.)"
+      },
+      {
+        id: 304,
+        sku: "PIN-202",
+        name: "Rodillo Pelo Corto Antigota 22cm",
+        category: "pinturas",
+        categoryLabel: "Pinturas",
+        price: 5800,
+        desc: "Terminación lisa sin salpicaduras, apto pinturas al agua y sintéticos.",
+        brand: "El Galgo",
+        stockState: "Disponible (20 u.)"
+      },
+      {
+        id: 305,
+        sku: "ELE-301",
+        name: "Cable Unipolar Normalizado 2.5mm x 100m",
+        category: "electricidad",
+        categoryLabel: "Electricidad",
+        price: 54000,
+        desc: "Cobre electrolítico IRAM ignífugo. Disponible en Celeste, Marrón y Verde.",
+        brand: "Prysmian",
+        stockState: "Disponible (6 rollos)"
+      },
+      {
+        id: 306,
+        sku: "ELE-302",
+        name: "Llave Térmica Bipolar 2x20A Curva C",
+        category: "electricidad",
+        categoryLabel: "Electricidad",
+        price: 11400,
+        desc: "Protección contra sobrecargas y cortocircuitos en tableros domiciliarios.",
+        brand: "Schneider",
+        stockState: "Disponible (12 u.)"
+      },
+      {
+        id: 307,
+        sku: "SEG-401",
+        name: "Cerradura de Seguridad Doble Perno",
+        category: "seguridad",
+        categoryLabel: "Seguridad",
+        price: 24500,
+        desc: "Caja de acero niquelada con 2 llaves computadas. Apta puertas exteriores.",
+        brand: "Kallay",
+        stockState: "Disponible (4 u.)"
+      },
+      {
+        id: 308,
+        sku: "SEG-402",
+        name: "Candado Blindado Reforzado 60mm",
+        category: "seguridad",
+        categoryLabel: "Seguridad",
+        price: 14800,
+        desc: "Cuerpo de bronce macizo revestido en acero cementado antizizalla.",
+        brand: "Yale",
+        stockState: "Disponible (9 u.)"
+      }
+    ];
+
+    let storeCart = {};
+    let activeFilter = 'todos';
+    let searchQuery = '';
+    let deliveryMode = 'retiro';
+
+    function renderStoreProducts() {
+      const container = document.getElementById('store-products-container');
+      const countEl = document.getElementById('current-products-count');
+      if (!container) return;
+
+      const filtered = STORE_CATALOG.filter(p => {
+        const matchesCategory = activeFilter === 'todos' || p.category === activeFilter;
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              p.sku.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              p.brand.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (countEl) {
+        countEl.textContent = `${filtered.length} artículos listados`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center text-slate-400">
+            <p class="font-bold text-slate-700 text-sm">No se encontraron artículos con ese término.</p>
+            <p class="text-xs text-slate-400 mt-1">Buscá por código de artículo, nombre o marca.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => {
+        const currentQty = storeCart[item.id] || 0;
+        return `
+          <div class="bg-white rounded-xl border border-slate-200 p-4 flex flex-col justify-between hover:border-slate-300 transition-all">
+            <div>
+              <div class="flex items-center justify-between text-[11px] mb-2">
+                <span class="font-mono font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">${item.sku}</span>
+                <span class="font-semibold text-slate-400">${item.brand}</span>
+              </div>
+              <h4 class="font-bold text-slate-900 text-sm leading-snug">${item.name}</h4>
+              <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">${item.desc}</p>
+              <div class="text-[11px] text-emerald-700 font-semibold mt-2">${item.stockState}</div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] text-slate-400 block font-medium">Precio final</span>
+                <span class="font-black text-slate-900 text-sm sm:text-base">$${item.price.toLocaleString('es-AR')}</span>
+              </div>
+
+              ${currentQty > 0 ? `
+                <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-lg border border-slate-200">
+                  <button onclick="decrementProduct(${item.id})" class="w-6 h-6 rounded bg-white text-slate-800 font-bold flex items-center justify-center text-xs shadow-xs">-</button>
+                  <span class="text-xs font-bold px-1.5 text-slate-900">${currentQty}</span>
+                  <button onclick="incrementProduct(${item.id})" class="w-6 h-6 rounded bg-slate-900 text-white font-bold flex items-center justify-center text-xs shadow-xs">+</button>
+                </div>
+              ` : `
+                <button onclick="incrementProduct(${item.id})" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-all active:scale-95">
+                  <span>+ Agregar a lista</span>
+                </button>
+              `}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function incrementProduct(id) {
+      storeCart[id] = (storeCart[id] || 0) + 1;
+      updateCartState();
+      renderStoreProducts();
+    }
+
+    function decrementProduct(id) {
+      if (!storeCart[id]) return;
+      storeCart[id] -= 1;
+      if (storeCart[id] <= 0) {
+        delete storeCart[id];
+      }
+      updateCartState();
+      renderStoreProducts();
+    }
+
+    function clearStoreCart() {
+      storeCart = {};
+      updateCartState();
+      renderStoreProducts();
+    }
+
+    function updateCartState() {
+      const counterBadge = document.getElementById('cart-counter-badge');
+      const drawerCount = document.getElementById('cart-drawer-item-count');
+      const drawerItems = document.getElementById('cart-drawer-items');
+      const subtotalEl = document.getElementById('cart-subtotal-val');
+      const totalEl = document.getElementById('cart-total-val');
+      const checkoutBtn = document.getElementById('cart-checkout-btn');
+      const shippingEl = document.getElementById('cart-shipping-val');
+
+      let totalItems = 0;
+      let subtotal = 0;
+
+      for (const [id, qty] of Object.entries(storeCart)) {
+        totalItems += qty;
+        const prod = STORE_CATALOG.find(p => p.id === parseInt(id));
+        if (prod) {
+          subtotal += prod.price * qty;
+        }
+      }
+
+      if (counterBadge) counterBadge.textContent = totalItems;
+      if (drawerCount) drawerCount.textContent = `${totalItems} artículos en lista`;
+
+      const shippingCost = (deliveryMode === 'envio' && totalItems > 0) ? 4500 : 0;
+      const finalTotal = subtotal + shippingCost;
+
+      if (subtotalEl) subtotalEl.textContent = `$${subtotal.toLocaleString('es-AR')}`;
+      if (shippingEl) {
+        shippingEl.textContent = deliveryMode === 'envio' ? `$${shippingCost.toLocaleString('es-AR')} (Flete)` : 'Sin cargo (Mostrador)';
+      }
+      if (totalEl) totalEl.textContent = `$${finalTotal.toLocaleString('es-AR')}`;
+
+      if (checkoutBtn) {
+        checkoutBtn.disabled = totalItems === 0;
+      }
+
+      if (drawerItems) {
+        if (totalItems === 0) {
+          drawerItems.innerHTML = `
+            <div class="py-16 text-center text-slate-400">
+              <i data-lucide="clipboard" class="w-8 h-8 mx-auto text-slate-300 mb-2"></i>
+              <p class="font-bold text-slate-600 text-sm">No hay artículos cargados</p>
+              <p class="text-xs text-slate-400 mt-1">Elegí productos del catálogo para probar el armado del pedido.</p>
+            </div>
+          `;
+        } else {
+          drawerItems.innerHTML = Object.entries(storeCart).map(([id, qty]) => {
+            const item = STORE_CATALOG.find(p => p.id === parseInt(id));
+            if (!item) return '';
+            return `
+              <div class="py-3 flex items-center justify-between gap-3">
+                <div>
+                  <span class="text-[10px] font-mono text-slate-400 font-bold block">${item.sku}</span>
+                  <h5 class="font-bold text-xs text-slate-900 leading-tight">${item.name}</h5>
+                  <div class="text-[11px] text-slate-500 font-semibold mt-0.5">$${(item.price * qty).toLocaleString('es-AR')} (${qty} u.)</div>
+                </div>
+                <div class="flex items-center gap-1.5 bg-slate-100 p-1 rounded-lg">
+                  <button onclick="decrementProduct(${item.id})" class="w-5 h-5 bg-white text-slate-700 rounded flex items-center justify-center font-bold text-xs">-</button>
+                  <span class="text-xs font-bold px-1">${qty}</span>
+                  <button onclick="incrementProduct(${item.id})" class="w-5 h-5 bg-slate-900 text-white rounded flex items-center justify-center font-bold text-xs">+</button>
+                </div>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    function toggleCartDrawer(open) {
+      const drawer = document.getElementById('cart-drawer');
+      const backdrop = document.getElementById('cart-drawer-backdrop');
+      if (!drawer || !backdrop) return;
+
+      if (open) {
+        backdrop.classList.remove('hidden');
+        drawer.classList.remove('translate-x-full');
+      } else {
+        backdrop.classList.add('hidden');
+        drawer.classList.add('translate-x-full');
+      }
+    }
+
+    function setDeliveryMode(mode) {
+      deliveryMode = mode;
+      const pickupBtn = document.getElementById('delivery-pickup');
+      const shipBtn = document.getElementById('delivery-ship');
+
+      if (mode === 'retiro') {
+        pickupBtn.className = "py-2 px-3 font-bold rounded-lg border border-slate-900 bg-slate-900 text-white text-center transition-all";
+        shipBtn.className = "py-2 px-3 font-semibold rounded-lg border border-slate-300 bg-white text-slate-700 text-center hover:bg-slate-100 transition-all";
+      } else {
+        shipBtn.className = "py-2 px-3 font-bold rounded-lg border border-slate-900 bg-slate-900 text-white text-center transition-all";
+        pickupBtn.className = "py-2 px-3 font-semibold rounded-lg border border-slate-300 bg-white text-slate-700 text-center hover:bg-slate-100 transition-all";
+      }
+      updateCartState();
+    }
+
+    function filterCategory(cat) {
+      activeFilter = cat;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        p.classList.remove('active', 'bg-slate-900', 'text-white');
+        p.classList.add('text-slate-600');
+      });
+
+      event.target.classList.add('active', 'bg-slate-900', 'text-white');
+      event.target.classList.remove('text-slate-600');
+
+      const titleEl = document.getElementById('current-section-title');
+      if (titleEl) {
+        const titles = {
+          todos: "Todos los rubros",
+          herramientas: "Herramientas Eléctricas & Manuales",
+          pinturas: "Pinturería & Accesorios",
+          electricidad: "Electricidad & Cables",
+          seguridad: "Cerrajería & Seguridad"
+        };
+        titleEl.textContent = titles[cat] || "Artículos";
+      }
+
+      renderStoreProducts();
+    }
+
+    function handleStoreSearch(val) {
+      searchQuery = val.trim();
+      renderStoreProducts();
+    }
+
+    function completeOrderSimulation() {
+      let itemsSummary = [];
+      let total = 0;
+
+      for (const [id, qty] of Object.entries(storeCart)) {
+        const item = STORE_CATALOG.find(p => p.id === parseInt(id));
+        if (item) {
+          itemsSummary.push(`[${item.sku}] ${qty}x ${item.name} = $${(item.price * qty).toLocaleString('es-AR')}`);
+          total += item.price * qty;
+        }
+      }
+
+      if (deliveryMode === 'envio') total += 4500;
+
+      const alertMsg = `PEDIDO RECIBIDO CON ÉXITO\n\nAsí te entra el pedido prolijo a tu celular o computadora:\n\n${itemsSummary.join('\n')}\n\n• Modalidad: ${deliveryMode === 'retiro' ? 'Retiro en mostrador' : 'Envío a obra / flete'}\n• TOTAL A COBRAR: $${total.toLocaleString('es-AR')}\n\nCon código de artículo y precio exacto para que no pierdas tiempo buscando.`;
+      
+      alert(alertMsg);
+      toggleCartDrawer(false);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderStoreProducts();
+      updateCartState();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla de Folletos Imprimibles | LocalSimple</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 8mm;
+    }
+
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .sheet-container {
+        box-shadow: none !important;
+        border: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .flyer-card {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-900 font-sans p-4 sm:p-6 min-h-screen">
+
+  <!-- BARRA DE CONTROL EN PANTALLA (No se imprime) -->
+  <div class="no-print max-w-4xl mx-auto mb-6 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+        <h1 class="font-extrabold text-base text-slate-900">Plantilla de Folletos para Comercios (A4)</h1>
+      </div>
+      <p class="text-xs text-slate-500 mt-1">
+        4 volantes por hoja. Diseño sobrio, sin emojis, enfocado en el orden y el trabajo diario del dueño.
+      </p>
+    </div>
+
+    <!-- Controles rápidos -->
+    <div class="flex flex-wrap items-center gap-2.5 w-full md:w-auto">
+      <input 
+        type="text" 
+        id="input-url" 
+        value="https://localsimple.vercel.app" 
+        placeholder="Tu link web o dominio" 
+        class="px-3 py-2 text-xs border border-slate-300 rounded-lg w-full sm:w-48 focus:ring-1 focus:ring-slate-900 outline-none"
+        oninput="updateAllFlyers()"
+      >
+      <input 
+        type="text" 
+        id="input-whatsapp" 
+        value="11 2245-6950" 
+        placeholder="Tu WhatsApp" 
+        class="px-3 py-2 text-xs border border-slate-300 rounded-lg w-full sm:w-32 focus:ring-1 focus:ring-slate-900 outline-none"
+        oninput="updateAllFlyers()"
+      >
+      <input 
+        type="text" 
+        id="input-name" 
+        value="Seba" 
+        placeholder="Tu nombre" 
+        class="px-3 py-2 text-xs border border-slate-300 rounded-lg w-full sm:w-24 focus:ring-1 focus:ring-slate-900 outline-none"
+        oninput="updateAllFlyers()"
+      >
+      <button 
+        onclick="window.print()" 
+        class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg shadow-xs flex items-center justify-center gap-1.5 transition-all shrink-0">
+        <span>Imprimir (Ctrl + P)</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTENEDOR HOJA A4 (2x2 = 4 VOLANTES) -->
+  <div class="sheet-container max-w-[210mm] mx-auto bg-white border border-slate-300 shadow-xl p-3 sm:p-5">
+    <div class="grid grid-cols-2 gap-4">
+
+      <!-- ==================== VOLANTE 1 ==================== -->
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+        <div>
+          <!-- Badge superior -->
+          <div class="flex items-center justify-center gap-1.5 mb-2.5">
+            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
+              Para el dueño del local
+            </span>
+            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+              Pago único
+            </span>
+          </div>
+
+          <!-- Título principal -->
+          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          </h2>
+          <p class="text-[11px] text-slate-500 mt-1 font-medium">
+            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          </p>
+
+          <!-- 3 Tarjetitas sobrias -->
+          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code y Contacto Directo -->
+        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
+            Escaneá con tu celular para probar las herramientas:
+          </div>
+
+          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          </div>
+
+          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+
+          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
+            <div>
+              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
+              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
+                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
+                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
+              5 años en sistemas
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== VOLANTE 2 ==================== -->
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+        <div>
+          <!-- Badge superior -->
+          <div class="flex items-center justify-center gap-1.5 mb-2.5">
+            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
+              Para el dueño del local
+            </span>
+            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+              Pago único
+            </span>
+          </div>
+
+          <!-- Título principal -->
+          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          </h2>
+          <p class="text-[11px] text-slate-500 mt-1 font-medium">
+            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          </p>
+
+          <!-- 3 Tarjetitas sobrias -->
+          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code y Contacto Directo -->
+        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
+            Escaneá con tu celular para probar las herramientas:
+          </div>
+
+          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          </div>
+
+          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+
+          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
+            <div>
+              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
+              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
+                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
+                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
+              5 años en sistemas
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== VOLANTE 3 ==================== -->
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+        <div>
+          <!-- Badge superior -->
+          <div class="flex items-center justify-center gap-1.5 mb-2.5">
+            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
+              Para el dueño del local
+            </span>
+            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+              Pago único
+            </span>
+          </div>
+
+          <!-- Título principal -->
+          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          </h2>
+          <p class="text-[11px] text-slate-500 mt-1 font-medium">
+            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          </p>
+
+          <!-- 3 Tarjetitas sobrias -->
+          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code y Contacto Directo -->
+        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
+            Escaneá con tu celular para probar las herramientas:
+          </div>
+
+          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          </div>
+
+          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+
+          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
+            <div>
+              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
+              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
+                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
+                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
+              5 años en sistemas
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== VOLANTE 4 ==================== -->
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+        <div>
+          <!-- Badge superior -->
+          <div class="flex items-center justify-center gap-1.5 mb-2.5">
+            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
+              Para el dueño del local
+            </span>
+            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+              Pago único
+            </span>
+          </div>
+
+          <!-- Título principal -->
+          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          </h2>
+          <p class="text-[11px] text-slate-500 mt-1 font-medium">
+            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          </p>
+
+          <!-- 3 Tarjetitas sobrias -->
+          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            </div>
+
+            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
+              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- QR Code y Contacto Directo -->
+        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
+            Escaneá con tu celular para probar las herramientas:
+          </div>
+
+          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          </div>
+
+          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+
+          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
+            <div>
+              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
+              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
+                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
+                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+              </div>
+            </div>
+            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
+              5 años en sistemas
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function updateAllFlyers() {
+      const urlInput = document.getElementById('input-url').value.trim() || "https://localsimple.vercel.app";
+      const whatsappInput = document.getElementById('input-whatsapp').value.trim() || "11 2245-6950";
+      const nameInput = document.getElementById('input-name').value.trim() || "Seba";
+
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(urlInput)}`;
+      document.querySelectorAll('.qr-code-img').forEach(img => img.src = qrApiUrl);
+      document.querySelectorAll('.qr-label').forEach(lbl => lbl.textContent = urlInput.replace(/^https?:\/\//, ''));
+
+      document.querySelectorAll('.whatsapp-label').forEach(el => el.textContent = whatsappInput);
+      document.querySelectorAll('.name-label').forEach(el => el.textContent = nameInput);
+    }
+  </script>
+</body>
+</html>
