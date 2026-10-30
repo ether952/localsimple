@@ -59,7 +59,7 @@
   <div class="no-print max-w-4xl mx-auto mb-6 bg-white p-5 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
     <div>
       <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
         <h1 class="font-extrabold text-base text-slate-900">Plantilla de Folletos para Comercios (A4)</h1>
       </div>
       <p class="text-xs text-slate-500 mt-1">
@@ -95,7 +95,7 @@
       >
       <button 
         onclick="window.print()" 
-        class="px-4 py-2 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-lg shadow-xs flex items-center justify-center gap-1.5 transition-all shrink-0">
+        class="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 text-xs font-black rounded-lg shadow-sm flex items-center justify-center gap-1.5 transition-all shrink-0">
         <span>Imprimir (Ctrl + P)</span>
       </button>
     </div>
@@ -106,328 +106,420 @@
     <div class="grid grid-cols-2 gap-4">
 
       <!-- ==================== VOLANTE 1 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border-2 border-slate-900 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative overflow-hidden shadow-xs">
+        <!-- Línea superior esmeralda -->
+        <div class="absolute top-0 inset-x-0 h-1.5 bg-emerald-500"></div>
+
         <div>
-          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-            <div class="flex items-center gap-1.5 text-left">
-              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
-              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+          <!-- Cabecera de Marca: Logo agrandado + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 pt-0.5">
+            <div class="flex items-center gap-2 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-9 h-9 object-contain drop-shadow-xs">
+              <div>
+                <span class="font-black text-slate-950 text-base tracking-tight leading-none block">Local<span class="text-emerald-600 font-extrabold">Simple</span></span>
+                <span class="text-[8px] font-bold uppercase tracking-wider text-slate-400 block mt-0.5">Sistemas para Locales</span>
+              </div>
             </div>
-            <div class="flex items-center gap-1">
-              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1">
+              <span class="text-[8.5px] font-extrabold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                 Villa del Parque
               </span>
-              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+              <span class="text-[8.5px] font-extrabold text-white bg-slate-950 px-2 py-0.5 rounded-md">
                 Pago único
               </span>
             </div>
           </div>
 
-          <!-- Título principal -->
-          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
-            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          <!-- Título principal agrandado con acento esmeralda -->
+          <h2 class="text-[14.5px] font-black text-slate-950 tracking-tight leading-snug">
+            Mantené el orden de tu negocio y <span class="text-emerald-600 underline decoration-emerald-300 decoration-2 underline-offset-2">ahorrá horas</span> de trabajo.
           </h2>
-          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
-            Sistemas prácticos a medida para el mostrador y control de mercadería.
+          <p class="text-[9.5px] text-slate-500 mt-1 font-medium leading-tight">
+            Herramientas prácticas a medida para el mostrador y stock diario.
           </p>
 
-          <!-- 3 Tarjetitas sobrias -->
+          <!-- 3 Tarjetas con toques esmeralda y negro -->
           <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Catálogo Digital de Artículos</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. Sin perder tiempo pasando precios a mano.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Control de Stock & Mostrador</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas complejas.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Caja Diaria & Organización</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Registro simple desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Quién Soy / Contacto -->
+        <!-- QR Code y Quién Soy / WhatsApp -->
         <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Escaneá para probar las herramientas en vivo:
+          <div class="text-[9px] font-black uppercase tracking-wider text-slate-800 mb-1 flex items-center gap-1">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Escaneá para probar las herramientas:</span>
           </div>
 
-          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+          <div class="p-1 bg-white border-2 border-emerald-500 rounded-xl shadow-xs">
             <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-emerald-800 font-mono font-bold mt-0.5 qr-label">localsimple.vercel.app</div>
 
-          <!-- Quién Soy breve + WhatsApp -->
-          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
-            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+          <!-- Quién Soy (Negro & Esmeralda) + Botón WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left">
+            <div class="p-2 rounded-xl bg-slate-950 text-white text-left mb-1.5 shadow-xs">
               <div class="flex items-center justify-between mb-0.5">
-                <span class="text-[9.5px] font-extrabold text-slate-900">
-                  ¿Quién está detrás?
-                </span>
-                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="text-[9.5px] font-extrabold text-white">¿Quién está detrás?</span>
+                </div>
+                <span class="text-[8px] font-bold text-emerald-300 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-500/40">
                   5 años en sistemas
                 </span>
               </div>
-              <p class="text-[8.5px] text-slate-600 leading-tight">
-                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              <p class="text-[8.5px] text-slate-300 leading-tight">
+                Soy <strong class="text-white name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones directas para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
               </p>
             </div>
 
-            <div class="flex items-center justify-between px-1">
-              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
-              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            <!-- Botón WhatsApp Verde Esmeralda -->
+            <div class="flex items-center justify-between bg-emerald-500 text-slate-950 px-2.5 py-1.5 rounded-xl shadow-xs">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 fill-slate-950 shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="text-[9.5px] font-black uppercase tracking-wider text-slate-950">WhatsApp directo:</span>
+              </div>
+              <span class="text-[12px] font-black tracking-tight text-slate-950 whatsapp-label">11 2245-6950</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 2 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border-2 border-slate-900 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative overflow-hidden shadow-xs">
+        <!-- Línea superior esmeralda -->
+        <div class="absolute top-0 inset-x-0 h-1.5 bg-emerald-500"></div>
+
         <div>
-          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-            <div class="flex items-center gap-1.5 text-left">
-              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
-              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+          <!-- Cabecera de Marca: Logo agrandado + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 pt-0.5">
+            <div class="flex items-center gap-2 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-9 h-9 object-contain drop-shadow-xs">
+              <div>
+                <span class="font-black text-slate-950 text-base tracking-tight leading-none block">Local<span class="text-emerald-600 font-extrabold">Simple</span></span>
+                <span class="text-[8px] font-bold uppercase tracking-wider text-slate-400 block mt-0.5">Sistemas para Locales</span>
+              </div>
             </div>
-            <div class="flex items-center gap-1">
-              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1">
+              <span class="text-[8.5px] font-extrabold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                 Villa del Parque
               </span>
-              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+              <span class="text-[8.5px] font-extrabold text-white bg-slate-950 px-2 py-0.5 rounded-md">
                 Pago único
               </span>
             </div>
           </div>
 
-          <!-- Título principal -->
-          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
-            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          <!-- Título principal agrandado con acento esmeralda -->
+          <h2 class="text-[14.5px] font-black text-slate-950 tracking-tight leading-snug">
+            Mantené el orden de tu negocio y <span class="text-emerald-600 underline decoration-emerald-300 decoration-2 underline-offset-2">ahorrá horas</span> de trabajo.
           </h2>
-          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
-            Sistemas prácticos a medida para el mostrador y control de mercadería.
+          <p class="text-[9.5px] text-slate-500 mt-1 font-medium leading-tight">
+            Herramientas prácticas a medida para el mostrador y stock diario.
           </p>
 
-          <!-- 3 Tarjetitas sobrias -->
+          <!-- 3 Tarjetas con toques esmeralda y negro -->
           <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Catálogo Digital de Artículos</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. Sin perder tiempo pasando precios a mano.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Control de Stock & Mostrador</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas complejas.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Caja Diaria & Organización</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Registro simple desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Quién Soy / Contacto -->
+        <!-- QR Code y Quién Soy / WhatsApp -->
         <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Escaneá para probar las herramientas en vivo:
+          <div class="text-[9px] font-black uppercase tracking-wider text-slate-800 mb-1 flex items-center gap-1">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Escaneá para probar las herramientas:</span>
           </div>
 
-          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+          <div class="p-1 bg-white border-2 border-emerald-500 rounded-xl shadow-xs">
             <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-emerald-800 font-mono font-bold mt-0.5 qr-label">localsimple.vercel.app</div>
 
-          <!-- Quién Soy breve + WhatsApp -->
-          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
-            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+          <!-- Quién Soy (Negro & Esmeralda) + Botón WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left">
+            <div class="p-2 rounded-xl bg-slate-950 text-white text-left mb-1.5 shadow-xs">
               <div class="flex items-center justify-between mb-0.5">
-                <span class="text-[9.5px] font-extrabold text-slate-900">
-                  ¿Quién está detrás?
-                </span>
-                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="text-[9.5px] font-extrabold text-white">¿Quién está detrás?</span>
+                </div>
+                <span class="text-[8px] font-bold text-emerald-300 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-500/40">
                   5 años en sistemas
                 </span>
               </div>
-              <p class="text-[8.5px] text-slate-600 leading-tight">
-                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              <p class="text-[8.5px] text-slate-300 leading-tight">
+                Soy <strong class="text-white name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones directas para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
               </p>
             </div>
 
-            <div class="flex items-center justify-between px-1">
-              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
-              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            <!-- Botón WhatsApp Verde Esmeralda -->
+            <div class="flex items-center justify-between bg-emerald-500 text-slate-950 px-2.5 py-1.5 rounded-xl shadow-xs">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 fill-slate-950 shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="text-[9.5px] font-black uppercase tracking-wider text-slate-950">WhatsApp directo:</span>
+              </div>
+              <span class="text-[12px] font-black tracking-tight text-slate-950 whatsapp-label">11 2245-6950</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 3 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border-2 border-slate-900 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative overflow-hidden shadow-xs">
+        <!-- Línea superior esmeralda -->
+        <div class="absolute top-0 inset-x-0 h-1.5 bg-emerald-500"></div>
+
         <div>
-          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-            <div class="flex items-center gap-1.5 text-left">
-              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
-              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+          <!-- Cabecera de Marca: Logo agrandado + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 pt-0.5">
+            <div class="flex items-center gap-2 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-9 h-9 object-contain drop-shadow-xs">
+              <div>
+                <span class="font-black text-slate-950 text-base tracking-tight leading-none block">Local<span class="text-emerald-600 font-extrabold">Simple</span></span>
+                <span class="text-[8px] font-bold uppercase tracking-wider text-slate-400 block mt-0.5">Sistemas para Locales</span>
+              </div>
             </div>
-            <div class="flex items-center gap-1">
-              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1">
+              <span class="text-[8.5px] font-extrabold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                 Villa del Parque
               </span>
-              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+              <span class="text-[8.5px] font-extrabold text-white bg-slate-950 px-2 py-0.5 rounded-md">
                 Pago único
               </span>
             </div>
           </div>
 
-          <!-- Título principal -->
-          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
-            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          <!-- Título principal agrandado con acento esmeralda -->
+          <h2 class="text-[14.5px] font-black text-slate-950 tracking-tight leading-snug">
+            Mantené el orden de tu negocio y <span class="text-emerald-600 underline decoration-emerald-300 decoration-2 underline-offset-2">ahorrá horas</span> de trabajo.
           </h2>
-          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
-            Sistemas prácticos a medida para el mostrador y control de mercadería.
+          <p class="text-[9.5px] text-slate-500 mt-1 font-medium leading-tight">
+            Herramientas prácticas a medida para el mostrador y stock diario.
           </p>
 
-          <!-- 3 Tarjetitas sobrias -->
+          <!-- 3 Tarjetas con toques esmeralda y negro -->
           <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Catálogo Digital de Artículos</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. Sin perder tiempo pasando precios a mano.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Control de Stock & Mostrador</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas complejas.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Caja Diaria & Organización</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Registro simple desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Quién Soy / Contacto -->
+        <!-- QR Code y Quién Soy / WhatsApp -->
         <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Escaneá para probar las herramientas en vivo:
+          <div class="text-[9px] font-black uppercase tracking-wider text-slate-800 mb-1 flex items-center gap-1">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Escaneá para probar las herramientas:</span>
           </div>
 
-          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+          <div class="p-1 bg-white border-2 border-emerald-500 rounded-xl shadow-xs">
             <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-emerald-800 font-mono font-bold mt-0.5 qr-label">localsimple.vercel.app</div>
 
-          <!-- Quién Soy breve + WhatsApp -->
-          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
-            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+          <!-- Quién Soy (Negro & Esmeralda) + Botón WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left">
+            <div class="p-2 rounded-xl bg-slate-950 text-white text-left mb-1.5 shadow-xs">
               <div class="flex items-center justify-between mb-0.5">
-                <span class="text-[9.5px] font-extrabold text-slate-900">
-                  ¿Quién está detrás?
-                </span>
-                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="text-[9.5px] font-extrabold text-white">¿Quién está detrás?</span>
+                </div>
+                <span class="text-[8px] font-bold text-emerald-300 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-500/40">
                   5 años en sistemas
                 </span>
               </div>
-              <p class="text-[8.5px] text-slate-600 leading-tight">
-                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              <p class="text-[8.5px] text-slate-300 leading-tight">
+                Soy <strong class="text-white name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones directas para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
               </p>
             </div>
 
-            <div class="flex items-center justify-between px-1">
-              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
-              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            <!-- Botón WhatsApp Verde Esmeralda -->
+            <div class="flex items-center justify-between bg-emerald-500 text-slate-950 px-2.5 py-1.5 rounded-xl shadow-xs">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 fill-slate-950 shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="text-[9.5px] font-black uppercase tracking-wider text-slate-950">WhatsApp directo:</span>
+              </div>
+              <span class="text-[12px] font-black tracking-tight text-slate-950 whatsapp-label">11 2245-6950</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 4 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border-2 border-slate-900 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative overflow-hidden shadow-xs">
+        <!-- Línea superior esmeralda -->
+        <div class="absolute top-0 inset-x-0 h-1.5 bg-emerald-500"></div>
+
         <div>
-          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
-          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
-            <div class="flex items-center gap-1.5 text-left">
-              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
-              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+          <!-- Cabecera de Marca: Logo agrandado + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 pt-0.5">
+            <div class="flex items-center gap-2 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-9 h-9 object-contain drop-shadow-xs">
+              <div>
+                <span class="font-black text-slate-950 text-base tracking-tight leading-none block">Local<span class="text-emerald-600 font-extrabold">Simple</span></span>
+                <span class="text-[8px] font-bold uppercase tracking-wider text-slate-400 block mt-0.5">Sistemas para Locales</span>
+              </div>
             </div>
-            <div class="flex items-center gap-1">
-              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+            <div class="flex flex-col sm:flex-row items-end sm:items-center gap-1">
+              <span class="text-[8.5px] font-extrabold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
                 Villa del Parque
               </span>
-              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+              <span class="text-[8.5px] font-extrabold text-white bg-slate-950 px-2 py-0.5 rounded-md">
                 Pago único
               </span>
             </div>
           </div>
 
-          <!-- Título principal -->
-          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
-            Mantené el orden de tu negocio y ahorrá horas de trabajo.
+          <!-- Título principal agrandado con acento esmeralda -->
+          <h2 class="text-[14.5px] font-black text-slate-950 tracking-tight leading-snug">
+            Mantené el orden de tu negocio y <span class="text-emerald-600 underline decoration-emerald-300 decoration-2 underline-offset-2">ahorrá horas</span> de trabajo.
           </h2>
-          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
-            Sistemas prácticos a medida para el mostrador y control de mercadería.
+          <p class="text-[9.5px] text-slate-500 mt-1 font-medium leading-tight">
+            Herramientas prácticas a medida para el mostrador y stock diario.
           </p>
 
-          <!-- 3 Tarjetitas sobrias -->
+          <!-- 3 Tarjetas con toques esmeralda y negro -->
           <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Catálogo Digital de Artículos</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. Sin perder tiempo pasando precios a mano.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Control de Stock & Mostrador</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas complejas.</span>
+              </div>
             </div>
 
-            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
-              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-xl bg-slate-50 border border-slate-200/90 flex items-start gap-2">
+              <div class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1 shrink-0"></div>
+              <div>
+                <strong class="text-slate-950 font-extrabold text-[10px] block leading-tight">Caja Diaria & Organización</strong>
+                <span class="text-slate-600 text-[9px] leading-tight block mt-0.5">Registro simple desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Quién Soy / Contacto -->
+        <!-- QR Code y Quién Soy / WhatsApp -->
         <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Escaneá para probar las herramientas en vivo:
+          <div class="text-[9px] font-black uppercase tracking-wider text-slate-800 mb-1 flex items-center gap-1">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>Escaneá para probar las herramientas:</span>
           </div>
 
-          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+          <div class="p-1 bg-white border-2 border-emerald-500 rounded-xl shadow-xs">
             <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-emerald-800 font-mono font-bold mt-0.5 qr-label">localsimple.vercel.app</div>
 
-          <!-- Quién Soy breve + WhatsApp -->
-          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
-            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+          <!-- Quién Soy (Negro & Esmeralda) + Botón WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left">
+            <div class="p-2 rounded-xl bg-slate-950 text-white text-left mb-1.5 shadow-xs">
               <div class="flex items-center justify-between mb-0.5">
-                <span class="text-[9.5px] font-extrabold text-slate-900">
-                  ¿Quién está detrás?
-                </span>
-                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                  <span class="text-[9.5px] font-extrabold text-white">¿Quién está detrás?</span>
+                </div>
+                <span class="text-[8px] font-bold text-emerald-300 bg-emerald-950 px-1.5 py-0.5 rounded border border-emerald-500/40">
                   5 años en sistemas
                 </span>
               </div>
-              <p class="text-[8.5px] text-slate-600 leading-tight">
-                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              <p class="text-[8.5px] text-slate-300 leading-tight">
+                Soy <strong class="text-white name-label">Seba</strong>, vecino de Villa del Parque. Desarrollo soluciones directas para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
               </p>
             </div>
 
-            <div class="flex items-center justify-between px-1">
-              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
-              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            <!-- Botón WhatsApp Verde Esmeralda -->
+            <div class="flex items-center justify-between bg-emerald-500 text-slate-950 px-2.5 py-1.5 rounded-xl shadow-xs">
+              <div class="flex items-center gap-1.5">
+                <svg class="w-3.5 h-3.5 fill-slate-950 shrink-0" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+                <span class="text-[9.5px] font-black uppercase tracking-wider text-slate-950">WhatsApp directo:</span>
+              </div>
+              <span class="text-[12px] font-black tracking-tight text-slate-950 whatsapp-label">11 2245-6950</span>
             </div>
           </div>
         </div>
