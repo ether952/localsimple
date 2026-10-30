@@ -9,7 +9,7 @@ const CONFIG = {
   developerName: "Seba",
   
   // Tu barrio o zona de cobertura
-  neighborhood: "Tu Barrio",
+  neighborhood: "Villa del Parque",
   
   // Nombre del emprendimiento
   brandName: "LocalSimple"

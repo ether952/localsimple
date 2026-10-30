@@ -33,7 +33,7 @@ En el archivo **[`js/main.js`](file:///c:/Users/SebastianArias/OneDrive%20-%20FE
 const CONFIG = {
   whatsappNumber: "5491122456950",
   developerName: "Seba",
-  neighborhood: "Tu Barrio",
+  neighborhood: "Villa del Parque",
   brandName: "LocalSimple"
 };
 ```
