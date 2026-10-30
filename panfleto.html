@@ -25,7 +25,7 @@
 
     @page {
       size: A4 portrait;
-      margin: 8mm;
+      margin: 6mm;
     }
 
     @media print {
@@ -106,269 +106,329 @@
     <div class="grid grid-cols-2 gap-4">
 
       <!-- ==================== VOLANTE 1 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
         <div>
-          <!-- Badge superior -->
-          <div class="flex items-center justify-center gap-1.5 mb-2.5">
-            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
-              Para el dueño del local
-            </span>
-            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-              Pago único
-            </span>
+          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+            <div class="flex items-center gap-1.5 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
+              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Para tu comercio
+              </span>
+              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Pago único
+              </span>
+            </div>
           </div>
 
           <!-- Título principal -->
-          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
             Mantené el orden de tu negocio y ahorrá horas de trabajo.
           </h2>
-          <p class="text-[11px] text-slate-500 mt-1 font-medium">
-            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
+            Sistemas prácticos a medida para el mostrador y control de mercadería.
           </p>
 
           <!-- 3 Tarjetitas sobrias -->
-          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+          <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Contacto Directo -->
-        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
-            Escaneá con tu celular para probar las herramientas:
+        <!-- QR Code y Quién Soy / Contacto -->
+        <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
+            Escaneá para probar las herramientas en vivo:
           </div>
 
-          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
-            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
 
-          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
-            <div>
-              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
-              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
-                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
-                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+          <!-- Quién Soy breve + WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
+            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="text-[9.5px] font-extrabold text-slate-900">
+                  ¿Quién está detrás?
+                </span>
+                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                  5 años en sistemas
+                </span>
               </div>
+              <p class="text-[8.5px] text-slate-600 leading-tight">
+                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de la zona. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              </p>
             </div>
-            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
-              5 años en sistemas
-            </span>
+
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
+              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 2 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
         <div>
-          <!-- Badge superior -->
-          <div class="flex items-center justify-center gap-1.5 mb-2.5">
-            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
-              Para el dueño del local
-            </span>
-            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-              Pago único
-            </span>
+          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+            <div class="flex items-center gap-1.5 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
+              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Para tu comercio
+              </span>
+              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Pago único
+              </span>
+            </div>
           </div>
 
           <!-- Título principal -->
-          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
             Mantené el orden de tu negocio y ahorrá horas de trabajo.
           </h2>
-          <p class="text-[11px] text-slate-500 mt-1 font-medium">
-            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
+            Sistemas prácticos a medida para el mostrador y control de mercadería.
           </p>
 
           <!-- 3 Tarjetitas sobrias -->
-          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+          <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Contacto Directo -->
-        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
-            Escaneá con tu celular para probar las herramientas:
+        <!-- QR Code y Quién Soy / Contacto -->
+        <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
+            Escaneá para probar las herramientas en vivo:
           </div>
 
-          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
-            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
 
-          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
-            <div>
-              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
-              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
-                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
-                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+          <!-- Quién Soy breve + WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
+            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="text-[9.5px] font-extrabold text-slate-900">
+                  ¿Quién está detrás?
+                </span>
+                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                  5 años en sistemas
+                </span>
               </div>
+              <p class="text-[8.5px] text-slate-600 leading-tight">
+                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de la zona. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              </p>
             </div>
-            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
-              5 años en sistemas
-            </span>
+
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
+              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 3 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
         <div>
-          <!-- Badge superior -->
-          <div class="flex items-center justify-center gap-1.5 mb-2.5">
-            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
-              Para el dueño del local
-            </span>
-            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-              Pago único
-            </span>
+          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+            <div class="flex items-center gap-1.5 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
+              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Para tu comercio
+              </span>
+              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Pago único
+              </span>
+            </div>
           </div>
 
           <!-- Título principal -->
-          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
             Mantené el orden de tu negocio y ahorrá horas de trabajo.
           </h2>
-          <p class="text-[11px] text-slate-500 mt-1 font-medium">
-            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
+            Sistemas prácticos a medida para el mostrador y control de mercadería.
           </p>
 
           <!-- 3 Tarjetitas sobrias -->
-          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+          <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Contacto Directo -->
-        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
-            Escaneá con tu celular para probar las herramientas:
+        <!-- QR Code y Quién Soy / Contacto -->
+        <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
+            Escaneá para probar las herramientas en vivo:
           </div>
 
-          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
-            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
 
-          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
-            <div>
-              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
-              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
-                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
-                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+          <!-- Quién Soy breve + WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
+            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="text-[9.5px] font-extrabold text-slate-900">
+                  ¿Quién está detrás?
+                </span>
+                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                  5 años en sistemas
+                </span>
               </div>
+              <p class="text-[8.5px] text-slate-600 leading-tight">
+                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de la zona. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              </p>
             </div>
-            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
-              5 años en sistemas
-            </span>
+
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
+              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- ==================== VOLANTE 4 ==================== -->
-      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-5 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
+      <div class="flyer-card border border-dashed border-slate-300 rounded-2xl p-4 flex flex-col justify-between bg-white text-center relative hover:border-slate-400 transition-colors">
         <div>
-          <!-- Badge superior -->
-          <div class="flex items-center justify-center gap-1.5 mb-2.5">
-            <span class="text-[10px] font-bold text-slate-700 bg-slate-100 px-2.5 py-0.5 rounded border border-slate-200">
-              Para el dueño del local
-            </span>
-            <span class="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
-              Pago único
-            </span>
+          <!-- Cabecera de Marca: Logo + LocalSimple + Badges -->
+          <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-100">
+            <div class="flex items-center gap-1.5 text-left">
+              <img src="img/logo.png" alt="LocalSimple" class="w-6 h-6 object-contain">
+              <span class="font-extrabold text-slate-900 text-sm tracking-tight">Local<span class="text-slate-400 font-medium">Simple</span></span>
+            </div>
+            <div class="flex items-center gap-1">
+              <span class="text-[8.5px] font-bold text-slate-700 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Para tu comercio
+              </span>
+              <span class="text-[8.5px] font-bold text-slate-900 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
+                Pago único
+              </span>
+            </div>
           </div>
 
           <!-- Título principal -->
-          <h2 class="text-base font-black text-slate-900 tracking-tight leading-tight">
+          <h2 class="text-sm font-black text-slate-900 tracking-tight leading-tight">
             Mantené el orden de tu negocio y ahorrá horas de trabajo.
           </h2>
-          <p class="text-[11px] text-slate-500 mt-1 font-medium">
-            Sistemas prácticos a medida para el mostrador. Entrega llave en mano.
+          <p class="text-[10px] text-slate-500 mt-1 font-medium leading-snug">
+            Sistemas prácticos a medida para el mostrador y control de mercadería.
           </p>
 
           <!-- 3 Tarjetitas sobrias -->
-          <div class="grid grid-cols-1 gap-1.5 my-3.5 text-left">
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Catálogo Digital de Artículos</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
+          <div class="grid grid-cols-1 gap-1.5 my-2.5 text-left">
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Catálogo Digital de Artículos</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Tus productos, códigos y precios al día. No pierdas tiempo pasando precios a mano.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Control de Stock & Mostrador</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Control de Stock & Mostrador</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Descontá ventas en 1 toque y sabé qué pedir al proveedor sin planillas difíciles.</span>
             </div>
 
-            <div class="p-2.5 rounded-lg bg-slate-50 border border-slate-200">
-              <strong class="text-slate-900 font-bold text-[11px] block">Caja Diaria & Automatización</strong>
-              <span class="text-slate-500 text-[10px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
+            <div class="p-2 rounded-lg bg-slate-50 border border-slate-200">
+              <strong class="text-slate-900 font-bold text-[10px] block">Caja Diaria & Organización</strong>
+              <span class="text-slate-500 text-[9px] leading-tight block mt-0.5">Todo registrado desde tu celular o computadora. Sin cuadernos que se pierden.</span>
             </div>
           </div>
         </div>
 
-        <!-- QR Code y Contacto Directo -->
-        <div class="pt-3 border-t border-slate-100 flex flex-col items-center">
-          <div class="text-[10px] font-bold uppercase tracking-wide text-slate-700 mb-1.5">
-            Escaneá con tu celular para probar las herramientas:
+        <!-- QR Code y Quién Soy / Contacto -->
+        <div class="pt-2 border-t border-slate-100 flex flex-col items-center">
+          <div class="text-[9px] font-bold uppercase tracking-wide text-slate-700 mb-1">
+            Escaneá para probar las herramientas en vivo:
           </div>
 
-          <div class="p-1.5 bg-white border border-slate-900 rounded-xl shadow-xs">
-            <img class="qr-code-img w-24 h-24" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
+          <div class="p-1 bg-white border border-slate-900 rounded-xl shadow-xs">
+            <img class="qr-code-img w-20 h-20" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://localsimple.vercel.app" alt="Código QR">
           </div>
 
-          <div class="text-[9px] text-slate-400 mt-1 font-mono qr-label">localsimple.vercel.app</div>
+          <div class="text-[8.5px] text-slate-400 mt-0.5 font-mono qr-label">localsimple.vercel.app</div>
 
-          <div class="w-full mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between text-left px-1">
-            <div>
-              <div class="text-[9px] text-slate-400 font-medium">Consultas directas en el barrio:</div>
-              <div class="text-[11px] font-extrabold text-slate-900 flex items-center gap-1">
-                <span>WhatsApp: <span class="whatsapp-label">11 2245-6950</span></span>
-                <span class="text-slate-400 font-normal">(<span class="name-label">Seba</span>)</span>
+          <!-- Quién Soy breve + WhatsApp -->
+          <div class="w-full mt-2 pt-1.5 border-t border-slate-100 text-left px-0.5">
+            <div class="p-1.5 rounded-lg bg-slate-50 border border-slate-200 text-left mb-1.5">
+              <div class="flex items-center justify-between mb-0.5">
+                <span class="text-[9.5px] font-extrabold text-slate-900">
+                  ¿Quién está detrás?
+                </span>
+                <span class="text-[8px] font-bold text-slate-700 bg-white px-1.5 py-0.5 rounded border border-slate-200">
+                  5 años en sistemas
+                </span>
               </div>
+              <p class="text-[8.5px] text-slate-600 leading-tight">
+                Soy <strong class="text-slate-800 name-label">Seba</strong>, vecino de la zona. Desarrollo soluciones simples para que trabajes tranquilo y sin pagar abonos mensuales obligatorios.
+              </p>
             </div>
-            <span class="text-[9px] font-bold text-slate-700 bg-slate-100 px-2 py-1 rounded border border-slate-200">
-              5 años en sistemas
-            </span>
+
+            <div class="flex items-center justify-between px-1">
+              <span class="text-[9px] text-slate-400 font-medium">WhatsApp directo:</span>
+              <span class="text-[11px] font-extrabold text-slate-900 whatsapp-label">11 2245-6950</span>
+            </div>
           </div>
         </div>
       </div>
